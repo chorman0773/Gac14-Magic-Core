@@ -4,12 +4,15 @@ import java.time.Duration;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.text.ITextComponent;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 
 public interface ISpell extends IForgeRegistryEntry<ISpell> {
 	
 	
 	public ResourceLocation getSpellName();
+	
+	public ITextComponent getDisplayName();
 	
 	public float getSpeed();
 

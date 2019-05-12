@@ -37,6 +37,9 @@ public class PlayerCasterObject implements ICaster, INBTSerializable<NBTTagCompo
 	private double manaCharge;
 	private Instant lastTickTime;
 	
+	private ISpecies species;
+	private IClass mclass;
+	
 	public PlayerCasterObject(PlayerProfile prof) {
 		this.prof = prof;
 	}
