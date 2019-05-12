@@ -31,7 +31,20 @@ public interface ISpell extends IForgeRegistryEntry<ISpell> {
 		return ISpell.class;
 	}
 	
-	public SpellInstance CastSpell(ICaster caster, Duration chargeTime, boolean force) ;
+	public default SpellInstance CastSpell(ICaster caster, Duration chargeTime, boolean force) {
+		if(!force) {
+			if(!caster.canCast(this))
+				return null;
+			else if(!caster.checkCast(this))
+				return null;
+		}
+		caster.doCast(this);
+		SpellInstance instance = new SpellInstance(this,caster,chargeTime);
+		if(instance.Cast()||force)
+			return instance;
+		else
+			return instance;
+	}
 	
 	public void onSpellCast(SpellInstance instance);
 	

@@ -1,5 +1,9 @@
 package github.chorman0773.gac14.magic.core.spell;
 
+import java.time.Duration;
+import java.util.List;
+import java.util.Set;
+
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec2f;
@@ -28,8 +32,13 @@ public interface ICaster {
 	
 	public double getResistence();
 	
+	public Set<ISpell> getSpells();
 	
+	public Duration getRemainingTimeFor(ISpell spell);
 	
+	public boolean canCast(ISpell spell);
 	
-
+	public boolean checkCast(ISpell spell);
+	
+	public void doCast(ISpell spell);
 }
